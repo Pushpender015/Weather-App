@@ -1,0 +1,319 @@
+/* Always use in all file in starting */
+*,*::before,*::after {
+    margin:0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Merriweather sans' , sans-serif;
+}
+
+/*  decraling color variable */
+:root {
+    --colorDark1 : #112D4E;
+    --colorDark2 : #3F72AF;
+    --colorLight1 : #DBE2EF;
+    --colorLight2 : #F9F7F7;
+}
+
+/* background set of website */
+.wrapper {
+    width: 100vw;
+    height: 100vh;
+    color: var(--colorLight2);
+    background-image: linear-gradient(160deg , #112d4e 0%, #3f72af 100%);
+    overflow: scroll;
+    scroll-behavior: smooth;
+}
+
+/* main heading properties set */
+h1 {
+    text-align: center;
+    padding-top: 20px;
+}
+
+/* tab container properties set */
+.tab-container {
+    max-width: 550px;
+    margin: 0 auto;
+    margin-top: 4rem;
+    display: flex;
+    justify-content: space-between;
+}
+
+@media (max-width: 700px) {
+    .tab-container {
+        margin: 0 auto;
+        margin-top: 4rem;
+        display: flex;
+        justify-content: space-around;
+    }
+  }
+
+
+.tab {
+    cursor: pointer;
+    font-size: 0.875rem;
+    letter-spacing: 1.75px;
+    padding: 5px 8px;
+}
+
+/* set the properties of switching one tab to another tab */
+.tab.current-tab {
+   background-color: rgba(219 , 226 , 239 , 0.5);
+   border-radius: 4px; 
+   padding: 4px;
+   
+}
+
+
+/* propeties set of weather container */
+.weather-container {
+    margin-block: 4rem;
+}
+
+/*  some properties set ( for centered pertcular things) */
+.sub-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+
+
+
+
+/* --------------Grant location container------------- */
+
+    /* grant button setting */
+    .btn {
+        all:unset;         /* resets all CSS properties to their initial 
+                            or inherited values ( remove DEFAULT Behaviour) */
+        font-size: 0.85rem;
+        text-transform: uppercase;
+        border-radius: 5px;
+        background-color: var(--colorDark2);
+        cursor: pointer;
+        padding: 10px 30px;
+    }
+
+    .btn:focus{
+        outline: 3px solid var(--colorLight1);
+    }
+
+    /* in "normal case" hiding grant location container */
+    .grant-location-container {
+        display:none;
+    }
+
+    /* visible grant locat ion container (when "active" class is activated  */
+    .grant-location-container.active {
+        display:flex;
+    }
+
+    .grant-location-container img{
+        margin-bottom: 2rem;
+    }
+
+    .grant-location-container p:first-of-type {
+        font-size: 1.72rem;
+        font-weight: 600;
+    }
+
+    .grant-location-container p:last-of-type {
+        font-size: 0.85rem;
+        font-weight: 500;
+        margin-top: 0.75rem;
+        margin-bottom: 1.75rem;
+        letter-spacing: 0.75px;
+    }
+
+
+
+
+
+/* --------------loading screen container--------------- */
+
+    /* in "normal case" hiding loading container */
+    .loading-container {
+        display:none;
+    }
+
+    /* visible loading container (when "active" class is activated  */
+    .loading-container.active {
+        display:flex;
+    }
+
+
+
+
+
+/* --------------show weather information--------------- */
+
+    /* in "normal case" hiding weather information */
+    .user-info-container {
+        display:none;
+    }
+
+    /* visible weather information (when "active" class is activated  */
+    .user-info-container.active {
+        display:flex;
+    }
+
+    .name{
+        display: flex;
+        align-items: center;
+        gap: 0 0.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .name p{
+        font-size: 2.5rem;
+    }
+
+    .user-info-container img{
+        width: 90px;
+        height: 90px;
+    }
+
+    .name img{
+        width: 30px;
+        height: 30px;
+    }
+
+    .user-info-container p[data-weatherDesc]{
+        font-size: 1.5rem;
+        font-weight: 200;
+    }
+
+    .user-info-container p[data-temp] {      /* user custom attribute*/
+        font-size: 2.75rem;
+        font-weight: 700;
+    }
+
+
+    /*--------------3 cards - parameters----------------  */
+
+        .parameter-container{
+            display: flex;
+            gap: 10px 20px;
+            justify-content: center;
+            align-items: center;
+            width: 90%;
+            margin-top: 2rem;
+        }
+
+        /* Set Class "parameter" */
+        .parameter{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 10px 20px;
+            background-color: rgba(219 , 226 , 239 , 0.5);
+            border-radius: 5px;
+             width: 200px;
+            height: 150px;
+            padding: 10px;
+        }
+
+        .parameter img{
+            width: 50px;
+            height: 50px;
+        }
+
+        .parameter p:first-of-type{
+            font-size: 1.5rem;
+            font-weight: 600;
+        }
+
+        .parameter p:last-of-type {
+            font-size: 1.5rem;
+            font-weight: 200;
+        }
+
+        @media (max-width: 700px) {
+            .parameter-container {
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+          }
+
+
+
+/* ----------------Search For City----------------- */
+
+    /* in "normal case" hiding weather information */
+    .form-container {
+        display:none;
+        width: 90%;
+        max-width: 550px;
+        margin: 0 auto;
+        gap: 0 10px;
+        margin-bottom: 1rem;
+
+    }
+
+    /* visible weather information (when "active" class is activated  */
+    .form-container.active {
+        scale:1;
+        opacity: 1;
+        display: flex;
+    }
+
+    .btn1 {
+        all:unset;           /* resets all CSS properties to their initial
+                            or inherited values ( remove DEFAULT Behaviour) */
+        background-color: var(--colorDark2);
+        padding: 10px 10px;
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        cursor: pointer;
+        margin-top: 5px;
+    }
+
+    .form-container input{
+        all: unset;
+        background-color: rgba(219 , 226 , 239 , 0.5);
+        padding: 10px;
+        border-radius: 10px;
+        margin: 5px;
+        width: calc(100% - 80px);
+        margin-bottom: 3rem;
+    }
+
+    .form-container input::placeholder {
+        color: rgba(255 , 255 , 255 , 0.7);
+    } 
+
+    .form-container input:focus{
+        outline: 3px solid rgba(255 , 255 , 255 , 0.7);
+    }
+
+
+
+
+/* ----------Handling error-------------- */
+
+    /* in "normal case" hiding error msg */
+    .error-message {
+        display:none;
+    }
+
+    /* visible error msg (when "active" class is activated  */
+    .error-message.active {
+        display:flex;
+        gap: 10px;
+    }
+
+    .error-message img{
+        width: 300px;
+        height: 300px;
+    }
+
+    .error-message p{
+        font-size: 20px;
+        font-weight: bold;
+    }
+
+
